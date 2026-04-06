@@ -26,9 +26,7 @@ CHECK (rating >= 1 AND rating <= 5),
 CHECK (reviewer_id <> reviewee_id),
 UNIQUE (contract_id, reviewer_id)
 
-INDEX idx_contract (contract_id),
-INDEX idx_reviewee (reviewee_id),
-INDEX idx_reviewer (reviewer_id)
+INDEX idx_rating (rating)
 );
 
 
@@ -51,6 +49,4 @@ ON DELETE CASCADE,
 CHECK (sender_id <> receiver_id),
 CHECK (CHAR_LENGTH(message_text) > 0)
 
-INDEX idx_sender (sender_id),
-INDEX idx_receiver (receiver_id)
 );
