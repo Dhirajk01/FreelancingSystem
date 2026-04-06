@@ -1,3 +1,7 @@
+-- This file contains queries for table creation
+
+
+
 
 --TAble : JobPosts
 
@@ -9,6 +13,7 @@ CREATE TABLE job_posts(
     budget DECIMAL(10, 2) NOT NULL,
     status ENUM('Open', 'In Progress', 'Complete') NOT NULL DEFAULT 'Open',
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL  DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     INDEX (client_id),
 	FOREIGN KEY (client_id) REFERENCES clients(client_id) ON DELETE CASCADE
 );
